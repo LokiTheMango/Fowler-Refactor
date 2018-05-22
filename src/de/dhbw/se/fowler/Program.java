@@ -10,8 +10,6 @@ public class Program
     /**
      * This is the main entry point for the application
      */
-    
-    
     public static void main(final String args[]) 
     {
         String result;
