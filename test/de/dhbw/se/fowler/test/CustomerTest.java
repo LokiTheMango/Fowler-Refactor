@@ -33,11 +33,11 @@ public class CustomerTest {
 
     @Test
     public void testStatement() {
-        Movie movie = new Movie("movie", 2);
-        Rental rental = new Rental(movie, 5);
+        Movie movie = new Movie("movie", 1);
+        Rental rental = new Rental(movie, 1);
         customer.addRental(rental);
 
-        assertEquals("Rental Record for movie\n" +
+        assertEquals("Rental Record for customer\n" +
                 "\tTitle\t\tDays\tAmount\n" +
                 "\tmovie\t\t1\t3.0\n" +
                 "Amount owed is 3.0\n" +

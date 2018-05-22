@@ -4,12 +4,14 @@ import java.lang.*;
 import java.util.*;
 
 public class Customer {
+	
     private String name;
     private Vector rentals = new Vector();
-    public Customer (String newname){
+    
+    public Customer (final String newname){
         name = newname;
     };
-    public void addRental(Rental arg) {
+    public void addRental(final Rental arg) {
         rentals.addElement(arg);
     };
     public String getName (){
@@ -42,7 +44,7 @@ public class Customer {
         return result;
     }
 
-    private double amountFor(Rental each) {
+    private double amountFor(final Rental each) {
         double thisAmount = 0;
         switch (each.getMovie().getPriceCode()) {
             case Movie.REGULAR:
