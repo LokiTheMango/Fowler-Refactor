@@ -8,17 +8,17 @@ public class Movie {
     private String title;
     private int priceCode;
     
-    public Movie(final String newtitle, final int newpriceCode) {
-        title = newtitle;
-        priceCode = newpriceCode;
+    public Movie(final String title, final int priceCode) {
+        this.title = title;
+        this.priceCode = priceCode;
     }
     
     public int getPriceCode() {
         return priceCode;
     }
     
-    public void setPriceCode(final int arg) {
-        priceCode = arg;
+    public void setPriceCode(final int pricecode) {
+        this.priceCode = pricecode;
     }
     
     public String getTitle () {

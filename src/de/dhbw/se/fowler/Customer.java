@@ -1,27 +1,27 @@
 package de.dhbw.se.fowler;
 
-import java.lang.*;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
 public class Customer {
 	
-    private String name;
+    private String customername;
     private Vector rentals = new Vector();
     
-    public Customer (final String newname){
-        name = newname;
+    public Customer (final String customername) {
+    	this.customername = customername;
     };
-    public void addRental(final Rental arg) {
-        rentals.addElement(arg);
+    public void addRental(final Rental rental) {
+        rentals.addElement(rental);
     };
-    public String getName (){
-        return name;
+    public String getCustomername () {
+        return customername;
     };
     public String statement() {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration enum_rentals = rentals.elements();	    
-        String result = "Rental Record for " + this.getName() + "\n";
+        String result = "Rental Record for " + this.getCustomername() + "\n";
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
         while (enum_rentals.hasMoreElements()) {
@@ -44,24 +44,24 @@ public class Customer {
         return result;
     }
 
-    private double amountFor(final Rental each) {
-        double thisAmount = 0;
-        switch (each.getMovie().getPriceCode()) {
+    private double amountFor(final Rental rental) {
+        double result = 0;
+        switch (rental.getMovie().getPriceCode()) {
             case Movie.REGULAR:
-                thisAmount += 2;
-                if (each.getDaysRented() > 2)
-                    thisAmount += (each.getDaysRented() - 2) * 1.5;
+            	result += 2;
+                if (rental.getDaysRented() > 2)
+                	result += (rental.getDaysRented() - 2) * 1.5;
                 break;
             case Movie.NEW_RELEASE:
-                thisAmount += each.getDaysRented() * 3;
+            	result += rental.getDaysRented() * 3;
                 break;
             case Movie.CHILDRENS:
-                thisAmount += 1.5;
-                if (each.getDaysRented() > 3)
-                    thisAmount += (each.getDaysRented() - 3) * 1.5;
+            	result += 1.5;
+                if (rental.getDaysRented() > 3)
+                	result += (rental.getDaysRented() - 3) * 1.5;
                 break;
         }
-        return thisAmount;
+        return result;
     }
 
 }

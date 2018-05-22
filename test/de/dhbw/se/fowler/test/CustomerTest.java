@@ -20,7 +20,7 @@ public class CustomerTest {
 
     @Test
     public void testName() {
-        assertEquals("customer", customer.getName());
+        assertEquals("customer", customer.getCustomername());
     }
 
     @Test
