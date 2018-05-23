@@ -27,7 +27,7 @@ public class Customer {
         result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
         while (enum_rentals.hasMoreElements()) {
-            Rental each = (Rental) enum_rentals.nextElement();
+            Rental each = enum_rentals.nextElement();
 
             // add frequent renter points
             frequentRenterPoints += each.getFrequentRenterPoints();
@@ -44,7 +44,7 @@ public class Customer {
     	double result = 0;
     	Enumeration<Rental> enum_rentals = rentals.elements();
         while (enum_rentals.hasMoreElements()) {
-            Rental each = (Rental) enum_rentals.nextElement();
+            Rental each = enum_rentals.nextElement();
             result += each.getCharge();
         }
         return result;
